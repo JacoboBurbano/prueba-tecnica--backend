@@ -15,7 +15,7 @@ class UserAuthTestCase(TestCase):
         self.token_url = "/views/api/token/"
         self.protected_url = "/views/api/token/protected-view/"
         refresh = RefreshToken.for_user(self.user)
-        self.access_token = refresh.access_token
+        self.access_token = str(refresh.access_token)
     
     def test_get_token_jwt(self):
         response = self.client.post(self.token_url, {
@@ -41,10 +41,9 @@ class UserAuthTestCase(TestCase):
     
     def test_get_auth_user(self):
         response = self.client.get(
-            '/views/api/users/?email=test@example.com',
+            '/views/api/users/',
             HTTP_AUTHORIZATION=f'Bearer {self.access_token}'
             )
-        print(response)
         self.assertEqual(response.status_code, 200)
         
         
