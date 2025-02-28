@@ -2,7 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class CustomUser(AbstractUser):
-    phone = models.IntegerField()
+    phone = models.BigIntegerField()
     created_at = models.DateField(auto_now_add=True)
     groups = models.ManyToManyField(
         "auth.Group",
@@ -19,9 +19,9 @@ class CustomUser(AbstractUser):
         return self.username
 
 class Activity(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=False, blank=False)
     action = models.CharField(max_length=255)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateField(auto_now_add=True)
     
     class Meta:
         indexes = [
