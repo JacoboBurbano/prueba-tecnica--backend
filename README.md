@@ -13,26 +13,26 @@ Este backend proporciona una API para la gestión de usuarios y actividades. Se 
 ## Endpoints principales
 
 ### Usuarios
-- `GET /api/users/` → Obtiene la lista de usuarios con filtros dinámicos.
-- `POST /api/users/` → Crea un nuevo usuario.
-- `GET /api/users/{id}/` → Obtiene los detalles de un usuario específico.
-- `PUT /api/users/{id}/` → Actualiza un usuario.
-- `DELETE /api/users/{id}/` → Elimina un usuario.
+- `GET /views/api/users/` → Obtiene la lista de usuarios con filtros dinámicos.
+- `POST /views/api/users/` → Crea un nuevo usuario.
+- `GET /views/api/users/{id}/` → Obtiene los detalles de un usuario específico.
+- `PUT /views/api/users/{id}/` → Actualiza un usuario.
+- `DELETE /views/api/users/{id}/` → Elimina un usuario.
 
 ### Actividades
-- `GET /api/activities/` → Obtiene la lista de actividades con filtros dinámicos.
-- `POST /api/activities/` → Crea una nueva actividad asociada a un usuario.
-- `GET /api/activities/{id}/` → Obtiene los detalles de una actividad.
-- `PUT /api/activities/{id}/` → Actualiza una actividad.
-- `DELETE /api/activities/{id}/` → Elimina una actividad.
+- `GET /views/api/activities/` → Obtiene la lista de actividades con filtros dinámicos.
+- `POST /views/api/activities/` → Crea una nueva actividad asociada a un usuario.
+- `GET /views/api/activities/{id}/` → Obtiene los detalles de una actividad.
+- `PUT /views/api/activities/{id}/` → Actualiza una actividad.
+- `DELETE /views/api/activities/{id}/` → Elimina una actividad.
 
 ## Filtros dinámicos
 Los filtros permiten buscar información de forma flexible. Se implementaron en `UserViewSet` y `ActivityViewSet` mediante `django-filter` y `SearchFilter` de DRF.
 
 Ejemplo de uso:
 ```
-GET /api/users/?search=manuel
-GET /api/activities/?user_id=3&search=login
+GET /views/api/users/?search=manuel
+GET /views/api/activities/?user_id=3&search=login
 ```
 Esto permite buscar por nombre de usuario o filtrar actividades por usuario específico.
 
