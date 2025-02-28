@@ -3,6 +3,10 @@ from .models import CustomUser, Activity
 from .serializer import UserSerializer, ActivitySerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from django.shortcuts import render
+
+def home(request):
+    return render(request, 'index.html')
 
 class UserViewSet(viewsets.ModelViewSet):  
     queryset = CustomUser.objects.all()
