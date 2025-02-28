@@ -73,7 +73,7 @@ El backend está desplegado en Render:
 Se utilizó Render para facilitar el despliegue continuo y permitir pruebas en un entorno real.
 
 ## Pendientes
-No se logró implementar JWT por falta de tiempo, pero se recomienda utilizar `SimpleJWT` para manejar autenticación de usuarios en el futuro.
+No se logró implementar JWT por falta de tiempo aunque la estructura esta echa.
 
 ---
 ### 📌 Autor: **Manuel Jacobo Burbano Jiménez**
