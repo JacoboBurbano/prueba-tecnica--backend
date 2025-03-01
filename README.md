@@ -39,14 +39,20 @@ Esto permite buscar por nombre de usuario o filtrar actividades por usuario espe
 ## Índices en la base de datos
 Para optimizar las búsquedas, se añadieron índices en los campos más consultados:
 ```python
-class CustomUser(models.Model):
-    email = models.EmailField(unique=True, db_index=True)
-    username = models.CharField(max_length=255, db_index=True)
-```
-```python
 class Activity(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, db_index=True)
-    action = models.CharField(max_length=255, db_index=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=False, blank=False)
+    action = models.CharField(max_length=255)
+    timestamp = models.DateField(auto_now_add=True)
+    
+    class Meta:
+        indexes = [
+            models.Index(fields=['user']),
+            models.Index(fields=['timestamp'])
+        ]
+        ordering = ['-timestamp']
+        
+    def __str__(self):
+        return f"{self.user.username} - {self.action}"
 ```
 Esto mejora el rendimiento en búsquedas y filtros.
 
