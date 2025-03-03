@@ -68,7 +68,7 @@ Cada consulta devuelve un máximo de 10 resultados por página.
 
 ## Documentación
 La documentación Swagger está disponible en:
-[Swagger UI](https://prueba-tecnica-backend-492t.onrender.com/swagger/)
+[Swagger UI](https://prueba-tecnica-backend-492t.onrender.com/docs/)
 
 Se generó con `drf-yasg`, añadiendo `swagger_auto_schema` a cada vista para especificar los parámetros y respuestas esperadas.
 
